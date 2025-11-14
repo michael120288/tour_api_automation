@@ -1,3 +1,4 @@
+import { faker } from "@faker-js/faker";
 import { getUser, signUp } from "../../helper/user";
 
 let cookies: string;
@@ -14,7 +15,7 @@ describe("TOUR", () => {
       .post("/tours")
       .set("Cookie", cookies)
       .send({
-        name: "TourForn703",
+        name: faker.name.jobTitle(),
         duration: 10,
         description: "Could be",
         maxGroupSize: 10,
@@ -38,7 +39,7 @@ describe("TOUR", () => {
       .then(res=>{
         console.log(res.body, "create tour response");
         expect(res.status).toBe(201);
-        expect(res.body.data.name).toBe("TourForn703");
+        expect(res.body.data.name).toBe("TourForn705");
       })
   });
 });
