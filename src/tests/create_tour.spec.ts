@@ -1,3 +1,4 @@
+import { faker } from "@faker-js/faker";
 import { getUser, signUp } from "../../helper/user";
 
 let cookies: string;
@@ -14,7 +15,7 @@ describe("TOUR", () => {
       .post("/tours")
       .set("Cookie", cookies)
       .send({
-        name: "TourForn705",
+        name: faker.name.jobTitle(),
         duration: 10,
         description: "Could be",
         maxGroupSize: 10,
